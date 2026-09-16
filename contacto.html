@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ponte en contacto con la comunidad de fanáticos de Breaking Bad, envía tus teorías o consultas sobre la serie.">
+    <meta name="theme-color" content="#0d3b24">
+    <title>Contacto — Breaking Bad Fan Page</title>
+    
+    <!-- Fuentes de Google: Oswald y Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación Principal -->
+    <header class="header">
+        <nav class="nav-container" aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="Breaking Bad Inicio">
+                <!-- <span class="element-symbol" aria-hidden="true">
+                    <span class="atomic-number">35</span>Br
+                </span><span class="logo-text">eaking</span>
+                <span class="element-symbol" aria-hidden="true">
+                    <span class="atomic-number">56</span>Ba
+                </span><span class="logo-text">d</span> -->
+                <img src="img/logo.jpg" alt="logo breaking-bad" class="logo-imagen">
+            </a>
+
+            <!-- Botón hamburguesa para dispositivos móviles -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Menú de navegación multi-página con submenú desplegable -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="personajes.html" class="nav-link">Personajes</a>
+                </li>
+                <li class="nav-item dropdown" id="temporadasDropdownItem">
+                    <a href="temporadas.html" class="nav-link" id="temporadasToggle" aria-haspopup="true" aria-expanded="false">
+                        Temporadas <span class="dropdown-arrow" aria-hidden="true">&#9662;</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="temporadasToggle">
+                        <li class="dropdown-item">
+                            <a href="temporadas.html#t1" class="dropdown-link">
+                                <span class="drop-badge">T1</span> Temporada 1 (2008)
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="temporadas.html#t2" class="dropdown-link">
+                                <span class="drop-badge">T2</span> Temporada 2 (2009)
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="temporadas.html#t3" class="dropdown-link">
+                                <span class="drop-badge">T3</span> Temporada 3 (2010)
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="temporadas.html#t4" class="dropdown-link">
+                                <span class="drop-badge">T4</span> Temporada 4 (2011)
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="temporadas.html#t5" class="dropdown-link">
+                                <span class="drop-badge">T5</span> Temporada 5 (2012-13)
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item">
+                            <a href="temporadas.html" class="dropdown-link dropdown-link-all">Ver todas las temporadas &rarr;</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="galeria.html" class="nav-link">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link active">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+
+        <!-- Encabezado de la Sección -->
+        <header class="page-header">
+            <h1 class="page-title">Contacto de <span class="highlight">Fanáticos</span></h1>
+            <p class="page-subtitle">¿Tienes alguna teoría sobre la serie, sugerencia o comentario? Escríbenos y conecta con la comunidad de Albuquerque.</p>
+        </header>
+
+        <!-- Distribución Flexbox del Formulario e Información -->
+        <section class="contact-section" aria-label="Formulario de contacto">
+            <div class="contact-layout">
+
+                <!-- Formulario -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form" novalidate>
+                        
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre y Apellido</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Ej: Walter Blanco" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu-correo@ejemplo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="favoriteCharacter" class="form-label">Personaje Favorito</label>
+                            <select id="favoriteCharacter" name="favoriteCharacter" class="form-select" required>
+                                <option value="" disabled selected>Selecciona tu personaje preferido</option>
+                                <option value="walter">Walter White / Heisenberg</option>
+                                <option value="jesse">Jesse Pinkman</option>
+                                <option value="saul">Saul Goodman</option>
+                                <option value="gus">Gustavo Fring</option>
+                                <option value="hank">Hank Schrader</option>
+                                <option value="mike">Mike Ehrmantraut</option>
+                                <option value="skyler">Skyler White</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Tu Mensaje o Teoría</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Escribe aquí tu opinión sobre la serie, tu episodio preferido o tu mensaje..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+
+                        <div id="feedbackMsg" class="feedback-msg" role="alert">
+                            ¡Gracias por tu mensaje! Tu consulta ha sido enviada con éxito a la comunidad de Breaking Bad.
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Información Lateral -->
+                <aside class="contact-info-container">
+                    
+                    <article class="info-card">
+                        <h2 class="info-title">Fan Club Albuquerque</h2>
+                        <p class="info-text">
+                            Somos un espacio independiente de fanáticos dedicado a preservar la memoria y el análisis de la obra maestra televisiva creada por Vince Gilligan.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h2 class="info-title">Curiosidad Química</h2>
+                        <p class="info-text">
+                            Los símbolos <strong>Br</strong> (Bromo, elemento 35) y <strong>Ba</strong> (Bario, elemento 56) en el título hacen referencia al bromo utilizado en retardantes de fuego y al bario usado en pirotecnia para generar destellos de color verde.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h2 class="info-title">Línea de Ayuda</h2>
+                        <p class="info-text">
+                            ¿Problemas legales en Nuevo México? Ya sabes a quién acudir: <em>"Better Call Saul!"</em>
+                        </p>
+                    </article>
+
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página con Redes Sociales -->
+    <footer class="footer">
+        <section class="footer-content">
+            <div class="footer-social-wrapper">
+                <span class="social-heading">Síguenos en nuestras redes</span>
+                <nav class="social-links" aria-label="Redes sociales de Breaking Bad">
+                    <!-- Facebook -->
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook Oficial de Breaking Bad">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <!-- X (Twitter) -->
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn x" aria-label="Cuenta oficial de X (Twitter) Breaking Bad">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="Canal de YouTube oficial">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram Oficial de Breaking Bad">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+            <p class="copyright">
+                &copy; 2026 Breaking Bad Fan Page &mdash; Todos los derechos reservados.
+            </p>
+            <p class="educational-disclaimer">
+                Sitio web desarrollado exclusivamente con fines educativos y de práctica de desarrollo web. Breaking Bad y todos los nombres, marcas e imágenes asociadas son propiedad de Sony Pictures Television y AMC Networks.
+            </p>
+        </section>
+    </footer>
+
+    <!-- Script externo de JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

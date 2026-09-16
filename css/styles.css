@@ -1,0 +1,1487 @@
+/* ==========================================================================
+    BREAKING BAD — FAN PAGE STYLESHEET
+    Estilo visual inspirado en la atmósfera y paleta de colores de Breaking Bad.
+    Utiliza Flexbox para la estructura, alineación y diseño responsive.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+    1. VARIABLES Y PALETA DE COLORES
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paleta inspirada en Breaking Bad */
+    --color-bg-main: #0c0f0d;         /* Fondo oscuro profundo */
+    --color-bg-card: #131915;         /* Fondo de tarjetas y bloques */
+    --color-bg-card-hover: #19231d;   /* Hover en tarjetas */
+    --color-header-bg: #090c0a;       /* Fondo del encabezado */
+    --color-footer-bg: #070908;       /* Fondo del pie de página */
+
+    /* Verdes temáticos (Química / Metanfetamina / Tonalidad AMC) */
+    --color-green-dark: #0d3b24;      /* Verde oscuro corporativo / serie */
+    --color-green-olive: #1f3626;     /* Verde oliva desierto */
+    --color-green-emerald: #2e8b57;   /* Verde esmeralda */
+    --color-green-accent: #3ddc84;    /* Verde acento vibrante */
+    --color-green-glow: rgba(61, 220, 132, 0.25);
+
+    /* Amarillos / Dorados (Trajes hazmat de Walter y Jesse) */
+    --color-yellow-accent: #f2c94c;   /* Amarillo hazmat */
+    --color-yellow-hover: #ffd700;    /* Amarillo dorado brillante */
+    --color-yellow-glow: rgba(242, 201, 76, 0.3);
+
+    /* Escala de grises y textos */
+    --color-text-light: #f0f3f1;      /* Blanco suave principal */
+    --color-text-muted: #a3aca6;      /* Texto secundario / atenuado */
+    --color-border: #233127;          /* Bordes sutiles */
+    --color-border-highlight: #3b5343;
+
+    /* Tipografías */
+    --font-heading: 'Oswald', 'Impact', 'Arial Black', sans-serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Transiciones y Sombras */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-highlight: 0 8px 32px rgba(0, 0, 0, 0.7);
+    --shadow-green: 0 0 25px rgba(46, 139, 87, 0.25);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* --------------------------------------------------------------------------
+    2. REINICIO Y CONFIGURACIÓN GENERAL
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(13, 59, 36, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(242, 201, 76, 0.08) 0%, transparent 45%);
+    background-attachment: fixed;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. ELEMENTOS DE LA TABLA PERIÓDICA (ESTILO ICÓNICO DE BREAKING BAD)
+   -------------------------------------------------------------------------- */
+.element-symbol,
+.element-box {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-green-dark);
+    border: 2px solid var(--color-green-emerald);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
+    text-transform: none;
+    user-select: none;
+}
+
+.element-symbol {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+    margin-right: 1px;
+    border-radius: var(--radius-sm);
+}
+
+.element-box {
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    margin-right: 2px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-green);
+}
+
+.atomic-number {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 0.55rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. ENCABEZADO Y NAVEGACIÓN (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.header {
+    background-color: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo-imagen{
+    width: 130px;
+    height: auto;
+}
+/* .logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+} */
+
+/* .logo:hover .element-symbol {
+    border-color: var(--color-yellow-accent);
+    box-shadow: 0 0 12px var(--color-yellow-glow);
+}
+
+.logo-text {
+    margin-right: 0.4rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+} */
+
+/* Menú de navegación principal (Flexbox) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: 0.6rem 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-yellow-accent);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-item.dropdown:hover .nav-link {
+    color: var(--color-yellow-accent);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after,
+.nav-item.dropdown:hover .nav-link::after {
+    width: 100%;
+}
+
+/* Flecha indicadora de submenú */
+.dropdown-arrow {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.nav-item.dropdown:hover .dropdown-arrow,
+.nav-item.dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--color-yellow-accent);
+}
+
+/* Submenú Desplegable (Dropdown) */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100%);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 250px;
+    background-color: rgba(13, 19, 15, 0.98);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--color-border-highlight);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(46, 139, 87, 0.2);
+    padding: 0.6rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 1100;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-green-emerald), var(--color-yellow-accent));
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* Mostrar dropdown en hover o con clase open */
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown:focus-within .dropdown-menu,
+.nav-item.dropdown.open .dropdown-menu {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+}
+
+.dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: var(--transition-smooth);
+}
+
+.dropdown-link:hover {
+    background-color: rgba(46, 139, 87, 0.22);
+    color: var(--color-yellow-accent);
+    padding-left: 1.5rem;
+}
+
+.drop-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-green-dark);
+    border: 1px solid var(--color-green-emerald);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 0.4rem 0;
+}
+
+.dropdown-link-all {
+    color: var(--color-green-accent);
+    font-weight: 600;
+    font-size: 0.88rem;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-link-all:hover {
+    color: var(--color-yellow-accent);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Botón Hamburguesa Móvil */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger-line {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--color-yellow-accent);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* --------------------------------------------------------------------------
+   5. CONTENIDO PRINCIPAL Y PÁGINA DE INICIO (HERO FLEXBOX)
+   -------------------------------------------------------------------------- */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    /* padding: 2.5rem 1.5rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Encabezados de páginas secundarias */
+.page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.page-title .highlight {
+    color: var(--color-yellow-accent);
+}
+
+.page-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Tarjeta principal Home con distribución Flexbox */
+.hero-section{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(../img/breaking-bad-aaron-paul-bryan-cranston-jesse-pinkman-walter-white-facebook-cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    margin-top: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-highlight);
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alineación centrada para no cortar imágenes */
+    justify-content: space-between;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-green-emerald), var(--color-yellow-accent));
+}
+
+/* Columna de información textual */
+.hero-info {
+    flex: 1 1 52%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: rgba(46, 139, 87, 0.2);
+    color: var(--color-green-accent);
+    border: 1px solid rgba(61, 220, 132, 0.3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+    font-style: italic;
+    color: var(--color-yellow-accent);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Sinopsis */
+.synopsis-block {
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-green-accent);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-subtitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+.synopsis-text {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 0.8rem;
+    text-align: left;
+}
+
+/* Ficha técnica rápida (Flexbox) */
+.quick-facts {
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.facts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+}
+
+.fact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.fact-label {
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.fact-value {
+    color: var(--color-text-light);
+}
+
+.highlight-rating {
+    color: var(--color-yellow-accent);
+    font-weight: 700;
+}
+
+/* Botones de acción (Flexbox) */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.btn-primary {
+    background-color: var(--color-yellow-accent);
+    color: #0c0f0d;
+    border: 2px solid var(--color-yellow-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-yellow-hover);
+    border-color: var(--color-yellow-hover);
+    box-shadow: 0 0 16px var(--color-yellow-glow);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 2px solid var(--color-border-highlight);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-green-olive);
+    border-color: var(--color-green-emerald);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Columna de Imagen (Figure & Figcaption) - Solución para imagen completa */
+.hero-media {
+    flex: 1 1 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-image-wrapper {
+    width: 80%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid var(--color-border-highlight);
+    box-shadow: var(--shadow-subtle);
+    background-color: #000000;
+    transition: var(--transition-smooth);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain; /* Garantiza que la imagen se vea COMPLETA sin recortes */
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.hero-media:hover .hero-image-wrapper {
+    border-color: var(--color-green-emerald);
+    box-shadow: var(--shadow-green);
+    transform: scale(1.01);
+}
+
+.media-caption {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+/* Sección de accesos rápidos del Home */
+.features-preview {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    flex: 1 1 calc(25% - 1.2rem);
+    min-width: 240px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover {
+    border-color: var(--color-green-emerald);
+    background-color: var(--color-bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-green);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    color: var(--color-yellow-accent);
+}
+
+.feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.feature-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.feature-link {
+    color: var(--color-yellow-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.feature-link:hover {
+    color: var(--color-yellow-hover);
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIÓN PERSONAJES (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.characters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.character-card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    min-width: 300px;
+    max-width: 380px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: var(--shadow-subtle);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.character-card:hover {
+    border-color: var(--color-green-emerald);
+    background-color: var(--color-bg-card-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-green);
+}
+
+.character-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-green-emerald);
+    transition: var(--transition-smooth);
+}
+
+.character-card:hover::before {
+    background-color: var(--color-yellow-accent);
+}
+
+.character-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.character-element {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.character-name-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.character-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    line-height: 1.1;
+}
+
+.character-alias {
+    color: var(--color-yellow-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.character-actor {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.character-quote {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid var(--color-yellow-accent);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--color-text-light);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.character-bio {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.character-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+}
+
+.char-tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+
+.char-tag.highlight {
+    background-color: rgba(61, 220, 132, 0.15);
+    color: var(--color-green-accent);
+    border-color: rgba(61, 220, 132, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+    7. SECCIÓN TEMPORADAS DETALLADAS (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.seasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.season-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-smooth);
+    scroll-margin-top: 95px; /* Evita que el header fijo tape el título al hacer clic en submenú */
+    position: relative;
+    overflow: hidden;
+}
+
+.season-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-green-emerald), var(--color-yellow-accent));
+}
+
+.season-card:hover {
+    border-color: var(--color-green-emerald);
+    box-shadow: var(--shadow-green);
+    transform: translateY(-2px);
+}
+
+.season-badge-col {
+    flex: 0 0 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 1.5rem 0.8rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-highlight);
+}
+
+.season-number {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--color-yellow-accent);
+    line-height: 1;
+}
+
+.season-year {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.season-episodes-count {
+    font-size: 0.78rem;
+    color: var(--color-green-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.season-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.season-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.season-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.season-rating-pill {
+    background-color: rgba(242, 201, 76, 0.15);
+    border: 1px solid var(--color-yellow-accent);
+    color: var(--color-yellow-accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 50px;
+}
+
+.season-synopsis {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.6;
+}
+
+/* Detalle en profundidad de cada temporada */
+.season-deep-info {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.deep-info-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-green-accent);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.deep-info-text {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.season-key-episodes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.key-label {
+    font-size: 0.85rem;
+    color: var(--color-yellow-accent);
+    font-weight: 600;
+}
+
+.episode-pill {
+    font-size: 0.78rem;
+    background-color: rgba(46, 139, 87, 0.18);
+    border: 1px solid var(--color-border-highlight);
+    color: var(--color-text-light);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+    8. SECCIÓN GALERÍA (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.gallery-card {
+    flex: 1 1 calc(33.333% - 1.2rem);
+    min-width: 280px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.gallery-card:hover {
+    border-color: var(--color-green-emerald);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-green);
+}
+
+.gallery-visual {
+    height: 180px;
+    background: linear-gradient(135deg, #0d3b24 0%, #091a10 50%, #1a1202 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.gallery-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gallery-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-yellow-accent);
+}
+
+.gallery-desc {
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+    9. SECCIÓN CONTACTO (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.contact-layout {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.contact-form-container {
+    flex: 1 1 60%;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-highlight);
+}
+
+.contact-info-container {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #080b09;
+    border: 1px solid var(--color-border-highlight);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-yellow-accent);
+    box-shadow: 0 0 10px var(--color-yellow-glow);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.info-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-green-accent);
+}
+
+.info-text {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+}
+
+.feedback-msg {
+    display: none;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background-color: rgba(61, 220, 132, 0.15);
+    border: 1px solid var(--color-green-accent);
+    color: var(--color-green-accent);
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+    10. PIE DE PÁGINA CON REDES SOCIALES (FOOTER FLEXBOX)
+   -------------------------------------------------------------------------- */
+.footer {
+    background-color: var(--color-footer-bg);
+    border-top: 1px solid var(--color-border);
+    padding: 2.5rem 1.5rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+/* Redes Sociales en el Footer */
+.footer-social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.social-heading {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-highlight);
+    color: var(--color-text-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-smooth);
+}
+
+.social-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: var(--transition-smooth);
+}
+
+/* Efectos hover específicos por red social */
+.social-btn.facebook:hover {
+    background-color: #1877f2;
+    border-color: #1877f2;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 0 16px rgba(24, 119, 242, 0.4);
+}
+
+.social-btn.x:hover {
+    background-color: #000000;
+    border-color: var(--color-text-light);
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+}
+
+.social-btn.youtube:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.4);
+}
+
+.social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 0 16px rgba(225, 48, 108, 0.4);
+}
+
+.copyright {
+    color: var(--color-text-light);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.educational-disclaimer {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    max-width: 750px;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+    11. RESPONSIVE DESIGN (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+
+/* Tablets y pantallas intermedias (<= 992px) */
+@media screen and (max-width: 992px) {
+    .hero-card {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .hero-info, 
+    .hero-media {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .character-card {
+        flex: 1 1 calc(50% - 1.5rem);
+    }
+
+    .season-card {
+        flex-direction: column;
+    }
+
+    .season-badge-col {
+        flex: 1 1 100%;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.8rem;
+    }
+
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .contact-form-container,
+    .contact-info-container {
+        width: 100%;
+    }
+}
+
+/* Teléfonos celulares y tablets verticales (<= 768px) */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(9, 12, 10, 0.98);
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        gap: 0.5rem;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+    }
+
+    /* Submenú en móviles */
+    .dropdown-menu {
+        position: relative;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        border-radius: 0;
+        width: 100%;
+        padding: 0.5rem 0;
+        display: none;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-item.dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-link {
+        justify-content: center;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Animación del botón hamburguesa */
+    .nav-toggle.open .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .nav-toggle.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.open .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .element-box {
+        width: 48px;
+        height: 48px;
+        font-size: 1.6rem;
+    }
+
+    .hero-card {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .facts-list {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .character-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .gallery-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* Teléfonos muy pequeños (<= 480px) */
+@media screen and (max-width: 480px) {
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+        letter-spacing: 1.5px;
+    }
+
+    .element-box {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .element-symbol {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95rem;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .social-links {
+        gap: 0.8rem;
+    }
+}
